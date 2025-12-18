@@ -1,0 +1,137 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #ff6b6b, #4834d4, #20bf6b);
+    background-size: 300% 300%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.calculator {
+    width: 320px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    transform: translateY(0);
+    transition: transform 0.3s;
+}
+
+.calculator:hover {
+    transform: translateY(-5px);
+}
+
+#result {
+    width: 100%;
+    height: 70px;
+    font-size: 2em;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    box-sizing: border-box;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 65px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Operator buttons */
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12),
+button:nth-child(16) {
+    background: linear-gradient(135deg, #ff0844, #ffb199);
+}
+
+/* Clear and Delete buttons */
+button:nth-child(1),
+button:nth-child(2) {
+    background: linear-gradient(135deg, #fc4a1a, #f7b733);
+}
+
+/* Numbers */
+button:nth-child(5),
+button:nth-child(6),
+button:nth-child(7),
+button:nth-child(9),
+button:nth-child(10),
+button:nth-child(11),
+button:nth-child(13),
+button:nth-child(14),
+button:nth-child(15),
+button:nth-child(17),
+button:nth-child(18) {
+    background: linear-gradient(135deg, #00c6fb, #005bea);
+}
+
+/* Equals button */
+button.equals {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    grid-column: span 2;
+}
+
+/* Percent button */
+button:nth-child(3) {
+    background: linear-gradient(135deg, #b721ff, #21d4fd);
+}
+
+/* Animations */
+@keyframes clear-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1); }
+}
+
+@keyframes error-animation {
+    0% { background: rgba(0, 0, 0, 0.3); }
+    50% { background: rgba(255, 0, 0, 0.4); }
+    100% { background: rgba(0, 0, 0, 0.3); }
+}
+
+.clear-animation {
+    animation: clear-animation 0.3s ease;
+}
+
+.error-animation {
+    animation: error-animation 0.3s ease;
+}
